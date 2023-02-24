@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/just_audio/intermediates/merged_res/release/menu/example_menu2.xml",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/3faccda65b71a69f6188f005420db684/transformed/core-1.7.0/res/menu/example_menu2.xml"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/just_audio/intermediates/merged_res/release/menu/example_menu.xml",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/3faccda65b71a69f6188f005420db684/transformed/core-1.7.0/res/menu/example_menu.xml"
+    }
+]

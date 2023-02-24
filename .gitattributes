@@ -1,0 +1,5 @@
+/build/app/intermediates/module_bundle/release/base.zip filter=lfs diff=lfs merge=lfs -text
+/.dart_tool/flutter_build/d53138d5fdb7d0ae38b7d7e1472afba3/app.dill filter=lfs diff=lfs merge=lfs -text
+/build/app/intermediates/intermediary_bundle/release/packageReleaseBundle/intermediary-bundle.aab filter=lfs diff=lfs merge=lfs -text
+/build/app/intermediates/intermediary_bundle/release/shrinkBundleReleaseResources/intermediary-bundle.aab filter=lfs diff=lfs merge=lfs -text
+/.dart_tool/flutter_build/5540fa62f242c1b97aad37cc22c7650e/app.dill filter=lfs diff=lfs merge=lfs -text

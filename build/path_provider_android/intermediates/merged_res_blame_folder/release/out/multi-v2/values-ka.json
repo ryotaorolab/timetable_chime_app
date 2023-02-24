@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/path_provider_android/intermediates/merged_res/release/values-ka/values-ka.xml",
+            "map": [
+                {
+                    "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/values-ka/values-ka.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/path_provider_android/intermediates/incremental/mergeReleaseResources/merged.dir/values-ka/values-ka.xml",
+            "map": [
+                {
+                    "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/values-ka/values-ka.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}

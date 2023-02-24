@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_res/release/drawable/notification_icon_background.xml",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_res/release/drawable/notification_bg.xml",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_res/release/drawable/notification_bg_low.xml",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_res/release/drawable/notification_tile_bg.xml",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/drawable/notification_tile_bg.xml"
+    }
+]

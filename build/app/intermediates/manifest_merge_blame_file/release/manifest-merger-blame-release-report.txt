@@ -1,0 +1,291 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.wd.classtime.wdtime"
+4    android:versionCode="4"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="28"
+8-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+11-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:9:5-81
+11-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:9:22-78
+12    <uses-permission android:name="android.permission.VIBRATE" />
+12-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:10:5-66
+12-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:10:22-63
+13    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+13-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:11:5-81
+13-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:11:22-78
+14    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+14-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:12:5-79
+14-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:12:22-76
+15    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+15-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:13:5-77
+15-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:13:22-74
+16    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+16-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:9:5-77
+16-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:9:22-74
+17    <uses-permission android:name="android.permission.WAKE_LOCK" />
+17-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:5-68
+17-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:22-65
+18    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- for android -->
+18-->[com.google.android.exoplayer:exoplayer-core:2.18.1] /Users/ryotaro/.gradle/caches/transforms-3/36b5f08b61e6e29d75112243375f8e43/transformed/jetified-exoplayer-core-2.18.1/AndroidManifest.xml:24:5-79
+18-->[com.google.android.exoplayer:exoplayer-core:2.18.1] /Users/ryotaro/.gradle/caches/transforms-3/36b5f08b61e6e29d75112243375f8e43/transformed/jetified-exoplayer-core-2.18.1/AndroidManifest.xml:24:22-76
+19    <!-- <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/> -->
+20    <!-- <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/> -->
+21    <!-- <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" /> -->
+22    <!-- <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" /> -->
+23    <!-- for Samsung -->
+24    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+24-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:19:5-86
+24-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:19:22-83
+25    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" /> <!-- for htc -->
+25-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:20:5-87
+25-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:20:22-84
+26    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+26-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:23:5-81
+26-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:23:22-78
+27    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" /> <!-- for sony -->
+27-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:24:5-83
+27-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:24:22-80
+28    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+28-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:27:5-88
+28-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:27:22-85
+29    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" /> <!-- for apex -->
+29-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:28:5-92
+29-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:28:22-89
+30    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" /> <!-- for solid -->
+30-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:31:5-84
+30-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:31:22-81
+31    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" /> <!-- for huawei -->
+31-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:34:5-83
+31-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:34:22-80
+32    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+32-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:37:5-91
+32-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:37:22-88
+33    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+33-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:38:5-92
+33-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:38:22-89
+34    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" /> <!-- for ZUK -->
+34-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:39:5-93
+34-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:39:22-90
+35    <uses-permission android:name="android.permission.READ_APP_BADGE" /> <!-- for OPPO -->
+35-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:42:5-73
+35-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:42:22-70
+36    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+36-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:45:5-82
+36-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:45:22-79
+37    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" /> <!-- for EvMe -->
+37-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:46:5-83
+37-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:46:22-80
+38    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
+38-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:49:5-88
+38-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:49:22-85
+39    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
+39-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:50:5-89
+39-->[me.leolin:ShortcutBadger:1.1.22] /Users/ryotaro/.gradle/caches/transforms-3/f18240bfb4ead1765c5a33b8ee5d0381/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:50:22-86
+40
+41    <queries>
+41-->[androidx.media2:media2-session:1.2.0] /Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/AndroidManifest.xml:24:5-34:15
+42        <intent>
+42-->[androidx.media2:media2-session:1.2.0] /Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/AndroidManifest.xml:25:9-27:18
+43            <action android:name="android.media.browse.MediaBrowserService" />
+43-->[androidx.media2:media2-session:1.2.0] /Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/AndroidManifest.xml:26:13-79
+43-->[androidx.media2:media2-session:1.2.0] /Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/AndroidManifest.xml:26:21-76
+44        </intent>
+45        <intent>
+45-->[androidx.media2:media2-session:1.2.0] /Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/AndroidManifest.xml:28:9-30:18
+46            <action android:name="androidx.media2.session.MediaSessionService" />
+46-->[androidx.media2:media2-session:1.2.0] /Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/AndroidManifest.xml:29:13-82
+46-->[androidx.media2:media2-session:1.2.0] /Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/AndroidManifest.xml:29:21-79
+47        </intent>
+48        <intent>
+48-->[androidx.media2:media2-session:1.2.0] /Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/AndroidManifest.xml:31:9-33:18
+49            <action android:name="androidx.media2.session.MediaLibraryService" />
+49-->[androidx.media2:media2-session:1.2.0] /Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/AndroidManifest.xml:32:13-82
+49-->[androidx.media2:media2-session:1.2.0] /Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/AndroidManifest.xml:32:21-79
+50        </intent>
+51    </queries>
+52
+53    <application
+53-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:3:4-47:19
+54        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+54-->[androidx.core:core:1.7.0] /Users/ryotaro/.gradle/caches/transforms-3/3faccda65b71a69f6188f005420db684/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+55        android:extractNativeLibs="false"
+56        android:icon="@mipmap/ic_launcher"
+56-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:5:9-43
+57        android:label="授業ピコーん" >
+57-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:4:9-31
+58        <activity
+58-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:6:9-41:20
+59            android:name="com.wonder.classtime.wondertime.MainActivity"
+59-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:7:13-41
+60            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+60-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:11:13-163
+61            android:exported="true"
+61-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:8:13-36
+62            android:hardwareAccelerated="true"
+62-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:12:13-47
+63            android:launchMode="singleTop"
+63-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:9:13-43
+64            android:screenOrientation="portrait"
+64-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:15:13-49
+65            android:showWhenLocked="true"
+65-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:14:13-42
+66            android:theme="@style/LaunchTheme"
+66-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:10:13-47
+67            android:turnScreenOn="true"
+67-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:16:13-40
+68            android:windowSoftInputMode="adjustResize" >
+68-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:13:13-55
+69
+70            <!--
+71                 Specifies an Android theme to apply to this Activity as soon as
+72                 the Android process has started. This theme is visible to the user
+73                 while the Flutter UI initializes. After that, this theme continues
+74                 to determine the Window background behind the Flutter UI.
+75            -->
+76            <meta-data
+76-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:21:13-24:17
+77                android:name="io.flutter.embedding.android.NormalTheme"
+77-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:22:15-70
+78                android:resource="@style/NormalTheme" />
+78-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:23:15-52
+79            <!--
+80                 Displays an Android View that continues showing the launch screen
+81                 Drawable until Flutter paints its first frame, then this splash
+82                 screen fades out. A splash screen is useful to avoid any visual
+83                 gap between the end of Android's launch screen and the painting of
+84                 Flutter's first frame.
+85            -->
+86            <meta-data
+86-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:30:13-33:17
+87                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+87-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:31:15-79
+88                android:resource="@drawable/launch_background" />
+88-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:32:15-61
+89            <!-- <meta-data -->
+90            <!-- android:name="com.google.firebase.messaging.default_notification_icon" -->
+91            <!-- android:resource="@mipmap/ic_notification" /> -->
+92            <intent-filter>
+92-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:37:13-40:29
+93                <action android:name="android.intent.action.MAIN" />
+93-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:38:17-68
+93-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:38:25-66
+94
+95                <category android:name="android.intent.category.LAUNCHER" />
+95-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:39:17-76
+95-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:39:27-74
+96            </intent-filter>
+97        </activity>
+98        <!--
+99             Don't delete the meta-data below.
+100             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+101        -->
+102        <meta-data
+102-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:44:9-46:33
+103            android:name="flutterEmbedding"
+103-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:45:13-44
+104            android:value="2" />
+104-->/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/android/app/src/main/AndroidManifest.xml:46:13-30
+105
+106        <receiver
+106-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:16:9-18:40
+107            android:name="com.dexterous.flutterlocalnotifications.ActionBroadcastReceiver"
+107-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-91
+108            android:exported="false" />
+108-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-37
+109        <receiver
+109-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:19:9-21:40
+110            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
+110-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-97
+111            android:exported="false" />
+111-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:21:13-37
+112        <receiver
+112-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:22:9-31:20
+113            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
+113-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-101
+114            android:exported="false" >
+114-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:24:13-37
+115            <intent-filter>
+115-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:25:13-30:29
+116                <action android:name="android.intent.action.BOOT_COMPLETED" />
+116-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:26:17-79
+116-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:26:25-76
+117                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+117-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:27:17-84
+117-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:27:25-81
+118                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+118-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:28:17-82
+118-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:28:25-79
+119                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+119-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:29:17-82
+119-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:29:25-79
+120            </intent-filter>
+121        </receiver>
+122
+123        <activity
+123-->[:url_launcher_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-13:74
+124            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+124-->[:url_launcher_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-74
+125            android:exported="false"
+125-->[:url_launcher_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-37
+126            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+126-->[:url_launcher_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-71
+127
+128        <service
+128-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:14:9-18:44
+129            android:name="id.flutter.flutter_background_service.BackgroundService"
+129-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:15:13-83
+130            android:enabled="true"
+130-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-35
+131            android:exported="true"
+131-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-36
+132            android:stopWithTask="false" />
+132-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-41
+133
+134        <receiver
+134-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:20:9-23:39
+135            android:name="id.flutter.flutter_background_service.WatchdogReceiver"
+135-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:21:13-82
+136            android:enabled="true"
+136-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:22:13-35
+137            android:exported="true" />
+137-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-36
+138        <receiver
+138-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:24:9-32:20
+139            android:name="id.flutter.flutter_background_service.BootReceiver"
+139-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:25:13-78
+140            android:enabled="true"
+140-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:26:13-35
+141            android:exported="true" >
+141-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:27:13-36
+142            <intent-filter>
+142-->[:flutter_background_service_android] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_manifest/release/AndroidManifest.xml:28:13-31:29
+143                <action android:name="android.intent.action.BOOT_COMPLETED" />
+143-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:26:17-79
+143-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:26:25-76
+144                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+144-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:28:17-82
+144-->[:flutter_local_notifications] /Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:28:25-79
+145            </intent-filter>
+146        </receiver>
+147
+148        <uses-library
+148-->[androidx.window:window:1.0.0-beta04] /Users/ryotaro/.gradle/caches/transforms-3/a5daffea7bf5571de3755204bc3bbc55/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+149            android:name="androidx.window.extensions"
+149-->[androidx.window:window:1.0.0-beta04] /Users/ryotaro/.gradle/caches/transforms-3/a5daffea7bf5571de3755204bc3bbc55/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+150            android:required="false" />
+150-->[androidx.window:window:1.0.0-beta04] /Users/ryotaro/.gradle/caches/transforms-3/a5daffea7bf5571de3755204bc3bbc55/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+151        <uses-library
+151-->[androidx.window:window:1.0.0-beta04] /Users/ryotaro/.gradle/caches/transforms-3/a5daffea7bf5571de3755204bc3bbc55/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+152            android:name="androidx.window.sidecar"
+152-->[androidx.window:window:1.0.0-beta04] /Users/ryotaro/.gradle/caches/transforms-3/a5daffea7bf5571de3755204bc3bbc55/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+153            android:required="false" />
+153-->[androidx.window:window:1.0.0-beta04] /Users/ryotaro/.gradle/caches/transforms-3/a5daffea7bf5571de3755204bc3bbc55/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+154    </application>
+155
+156</manifest>

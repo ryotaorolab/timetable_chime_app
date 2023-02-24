@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_res/release/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_res/release/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_res/release/layout-v21/notification_action.xml",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_res/release/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/layout-v21/notification_template_custom_big.xml"
+    }
+]

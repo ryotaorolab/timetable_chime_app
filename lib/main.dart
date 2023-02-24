@@ -1,0 +1,796 @@
+import 'package:flutter/material.dart';
+import 'package:adobe_xd/pinned.dart';
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:intl/intl.dart';
+import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
+import 'package:flutter_native_timezone/flutter_native_timezone.dart';
+import 'package:flutter_app_badger/flutter_app_badger.dart';
+import 'package:just_audio/just_audio.dart';
+
+// import 'package:audio_session/audio_session.dart';
+import 'package:wondertime/Start.dart';
+import 'Start3.dart';
+
+void main() async {
+  _setupTimeZone();
+  // runApp(TimerApp());
+  runApp(new MaterialApp(
+    home: new Start(),
+  ));
+}
+
+// タイムゾーンを設定する
+Future<void> _setupTimeZone() async {
+  tz.initializeTimeZones();
+  var tokyo = tz.getLocation('Asia/Tokyo');
+  tz.setLocalLocation(tokyo);
+}
+
+class TimerApp extends StatelessWidget {
+  // main({
+  //   Key? key,
+  // }) : super(key: key);
+
+  /// タイマーアプリclass TimerApp extends StatelessWidget {
+  const TimerApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: '授業ピコーん',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: TimerPage(title: 'Life cycle Event Sample Timer'),
+    );
+  }
+}
+
+/// タイマーページ
+class TimerPage extends StatefulWidget {
+  TimerPage({Key? key, this.title}) : super(key: key);
+  final String? title;
+
+  @override
+  _TimerPageState createState() => _TimerPageState();
+}
+
+/// タイマーページの状態を管理するクラス
+class _TimerPageState extends State<TimerPage> with WidgetsBindingObserver {
+  var now = DateTime.now(); //日付(曜日) 時刻
+
+  // 初期化処理
+  @override
+  void initState() {
+    // FlutterBackgroundService.initialize(_DateTimenow);
+    // FlutterBackgroundService.in
+    setState(_DateTimenow);
+    nowDateTime_str = DateFormat('(E) hh:mm').format(now);
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    _init();
+    //音源再生の初期設定
+    _setupSession();
+    _cancelNotification();
+    _requestPermissions();
+  }
+
+  //通知処理　ここから
+  final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
+  FlutterLocalNotificationsPlugin();
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  Future<void> _init() async {
+    await _configureLocalTimeZone();
+    await _initializeNotification();
+  }
+
+  Future<void> _configureLocalTimeZone() async {
+    tz.initializeTimeZones();
+    final String? timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
+    tz.setLocalLocation(tz.getLocation(timeZoneName!));
+  }
+
+  Future<void> _initializeNotification() async {
+    const DarwinInitializationSettings initializationSettingsIOS =
+    DarwinInitializationSettings(
+      requestAlertPermission: false,
+      requestBadgePermission: false,
+      requestSoundPermission: false,
+    );
+    const AndroidInitializationSettings initializationSettingsAndroid =
+    AndroidInitializationSettings('ic_notification');
+
+    const InitializationSettings initializationSettings =
+    InitializationSettings(
+      android: initializationSettingsAndroid,
+      iOS: initializationSettingsIOS,
+    );
+    await _flutterLocalNotificationsPlugin.initialize(initializationSettings);
+  }
+
+  Future<void> _cancelNotification() async {
+    await _flutterLocalNotificationsPlugin.cancelAll();
+  }
+
+  Future<void> _requestPermissions() async {
+    await _flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+        IOSFlutterLocalNotificationsPlugin>()
+        ?.requestPermissions(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
+    NotificationAddTimeEvent();
+  }
+
+  Future<void> _registerMessage({
+    required int month,
+    required int day,
+    required int hour,
+    required int minutes,
+    required message,
+    required int notificationid,
+  }) async {
+    final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
+    tz.TZDateTime scheduledDate = tz.TZDateTime(
+      tz.local,
+      now.year,
+      month,
+      day,
+      hour,
+      minutes,
+    );
+    await _flutterLocalNotificationsPlugin.zonedSchedule(
+      notificationid,
+      '授業時間のお知らせ',
+      message,
+      scheduledDate,
+      NotificationDetails(
+        android: AndroidNotificationDetails(
+          'channel id',
+          'channel name',
+          importance: Importance.max,
+          priority: Priority.high,
+          ongoing: false,
+          styleInformation: BigTextStyleInformation(message),
+          icon: 'ic_notification',
+        ),
+        iOS: const DarwinNotificationDetails(
+          badgeNumber: 1,
+        ),
+      ),
+      androidAllowWhileIdle: true,
+      uiLocalNotificationDateInterpretation:
+      UILocalNotificationDateInterpretation.absoluteTime,
+      matchDateTimeComponents: DateTimeComponents.time,
+    );
+  }
+
+  Future<void> _registerMessageTest({
+    required int hour,
+    required int minutes,
+    required int second,
+    required message,
+  }) async {
+    final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
+    tz.TZDateTime scheduledDate = tz.TZDateTime(
+      tz.local,
+      now.year,
+      now.month,
+      now.day,
+      hour,
+      minutes,
+      second,
+    );
+    await _flutterLocalNotificationsPlugin.zonedSchedule(
+      21,
+      '通知テスト',
+      message,
+      scheduledDate,
+      NotificationDetails(
+        android: AndroidNotificationDetails(
+          'channel id',
+          'channel name',
+          importance: Importance.max,
+          priority: Priority.high,
+          ongoing: false,
+          styleInformation: BigTextStyleInformation(message),
+          icon: 'ic_notification',
+        ),
+        iOS: const DarwinNotificationDetails(
+          badgeNumber: 1,
+        ),
+      ),
+      androidAllowWhileIdle: true,
+      uiLocalNotificationDateInterpretation:
+      UILocalNotificationDateInterpretation.absoluteTime,
+      matchDateTimeComponents: DateTimeComponents.time,
+    );
+  }
+
+  //通知処理　ここまで
+
+  late AudioPlayer _player;
+  double _currentSliderValue = 1.0;
+
+  //音源再生の処理
+  Future<void> _setupSession() async {
+    _player = AudioPlayer();
+    await _loadAudioFile();
+  }
+
+  Future<void> _loadAudioFile() async {
+    await _player.setAsset('assets/audio/chimeaudio.mp3'); // アセット(ローカル)のファイル
+  }
+
+  Future<void> Classchimeaudios() async {
+    // 再生終了状態の場合、新たなオーディオファイルを定義し再生できる状態にする
+    if (_player.processingState == ProcessingState.completed) {
+      await _loadAudioFile();
+    }
+
+    await _player.setSpeed(_currentSliderValue); // 再生速度を指定
+    await _player.play();
+  }
+
+  /// ライフサイクルが変更された際に呼び出される関数をoverrideして、変更を検知
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused) {
+      // バックグラウンドに遷移した時
+      setState(_DateTimenow);
+    } else if (state == AppLifecycleState.resumed) {
+      // フォアグラウンドに復帰した時
+      // setState(_handleOnResumed);
+      setState(_DateTimenow);
+      //通知処理
+      FlutterAppBadger.removeBadge();
+    }
+  }
+
+  String nowDateTime_str = "";
+
+  _DateTimenow() {
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        now = DateTime.now();
+        nowDateTime_str = DateFormat('(E) hh:mm').format(now);
+      });
+      CloseClassAnnounce();
+    });
+  }
+
+  List<bool> AnnounceOnlyOnce = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
+  String WeekofDay = "";
+  String is_ClassOpening = "";
+  String MyClassStatus = "";
+
+  bool NotificationSwitch = true;
+
+  Future<void> CloseClassAnnounce() async {
+    String TodayWeekofDay = DateFormat('E').format(now);
+
+    //開講曜日の確認
+    if (TodayWeekofDay == "Wed" ||
+        TodayWeekofDay == "Thu" ||
+        TodayWeekofDay == "Fri") {
+      //平日なら
+      is_ClassOpening = "平日開講";
+    } else if (TodayWeekofDay == "Sat" || TodayWeekofDay == "Sun") {
+      //土日なら
+      is_ClassOpening = "土日開講";
+    } else {
+      is_ClassOpening = "休み";
+    }
+
+    WeekofDay = TodayWeekofDay;
+
+    //アプリをずっと起動している場合の知らせる処理
+    if (is_ClassOpening == "平日開講") {
+      MyClassStatus = "平日授業";
+      if (nowDateTime_str == "(" + WeekofDay + ") 05:20" &&
+          AnnounceOnlyOnce[0] == false) {
+        Classchimeaudios();
+        AnnounceOnlyOnce[0] = true;
+      }
+      if (nowDateTime_str == "(" + WeekofDay + ") 07:10" &&
+          AnnounceOnlyOnce[1] == false) {
+        Classchimeaudios();
+        AnnounceOnlyOnce[1] = true;
+      }
+      if (nowDateTime_str == "(" + WeekofDay + ") 09:00" &&
+          AnnounceOnlyOnce[2] == false) {
+        Classchimeaudios();
+        AnnounceOnlyOnce[2] = true;
+      }
+    }
+    if (is_ClassOpening == "土日開講") {
+      MyClassStatus = "土日時間割";
+      if (nowDateTime_str == "(" + WeekofDay + ") 11:30" &&
+          AnnounceOnlyOnce[3] == false) {
+        Classchimeaudios();
+        AnnounceOnlyOnce[3] = true;
+      }
+      if (nowDateTime_str == "(" + WeekofDay + ") 01:20" &&
+          AnnounceOnlyOnce[4] == false) {
+        Classchimeaudios();
+        AnnounceOnlyOnce[4] = true;
+      }
+      if (nowDateTime_str == "(" + WeekofDay + ") 04:10" &&
+          AnnounceOnlyOnce[5] == false) {
+        Classchimeaudios();
+        AnnounceOnlyOnce[5] = true;
+      }
+      if (nowDateTime_str == "(" + WeekofDay + ") 06:00" &&
+          AnnounceOnlyOnce[6] == false) {
+        Classchimeaudios();
+        AnnounceOnlyOnce[6] = true;
+      }
+    }
+    if (is_ClassOpening == "休み") {
+      MyClassStatus = "お休みです";
+
+      //Debug用
+      // if(nowDateTime_str == "(" + WeekofDay + ") 11:11" && AnnounceOnlyOnce[7] == false) {
+      //   print("Hello");
+      //   // _notificationId = _scheduleLocalNotification(_time.difference(DateTime.utc(0, 0, 0)));
+      //   AnnounceOnlyOnce[7] = true;
+      //   await Classchimeaudios();
+      // }
+    }
+  }
+
+  void NotificationAddTimeEvent() {
+    //日付の取得
+    int TodayMonth = int.parse(DateFormat('MM').format(now));
+    int TodayYear = int.parse(DateFormat('dd').format(now));
+
+    if (is_ClassOpening == "平日開講") {
+      //平日開講の時刻をすべて通知に登録する
+      if (NotificationSwitch == false) {
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 15,
+            minutes: 50,
+            message: "1コマ目の授業が始まりました！",
+            notificationid: 0);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 17,
+            minutes: 10,
+            message: "授業残り10分前です！FBに取り組みましょう！",
+            notificationid: 1);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 17,
+            minutes: 20,
+            message: "授業終了です！",
+            notificationid: 2);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 17,
+            minutes: 40,
+            message: "2コマ目の授業が始まりました！",
+            notificationid: 3);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 19,
+            minutes: 00,
+            message: "授業残り10分前です！FBに取り組みましょう！",
+            notificationid: 4);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 19,
+            minutes: 10,
+            message: "授業終了です！",
+            notificationid: 5);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 19,
+            minutes: 30,
+            message: "3コマ目の授業が始まりました！",
+            notificationid: 6);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 20,
+            minutes: 50,
+            message: "授業残り10分前です！FBに取り組みましょう！",
+            notificationid: 7);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 21,
+            minutes: 00,
+            message: "授業終了です！",
+            notificationid: 8);
+      }
+    }
+    if (is_ClassOpening == "土日開講") {
+      if (NotificationSwitch == false) {
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 10,
+            minutes: 00,
+            message: "授業が始まりました！",
+            notificationid: 9);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 11,
+            minutes: 20,
+            message: "授業残り10分前です！FBに取り組みましょう！",
+            notificationid: 10);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 11,
+            minutes: 30,
+            message: "授業終了です！",
+            notificationid: 11);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 11,
+            minutes: 50,
+            message: "授業が始まりました！",
+            notificationid: 12);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 13,
+            minutes: 10,
+            message: "授業残り10分前です！FBに取り組みましょう！",
+            notificationid: 13);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 13,
+            minutes: 20,
+            message: "授業終了です！",
+            notificationid: 14);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 14,
+            minutes: 40,
+            message: "授業が始まりました！",
+            notificationid: 15);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 16,
+            minutes: 00,
+            message: "授業残り10分前です！FBに取り組みましょう！",
+            notificationid: 16);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 16,
+            minutes: 10,
+            message: "授業終了です！",
+            notificationid: 17);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 16,
+            minutes: 30,
+            message: "授業が始まりました！",
+            notificationid: 18);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 17,
+            minutes: 50,
+            message: "授業残り10分前です！FBに取り組みましょう！",
+            notificationid: 19);
+        _registerMessage(
+            month: TodayMonth,
+            day: TodayYear,
+            hour: 18,
+            minutes: 00,
+            message: "授業終了です！",
+            notificationid: 20);
+      }
+    }
+  }
+
+  String NotificationSwitchText = "通知をオン";
+
+  void NotificationSwitchControll() {
+    setState(() {
+      if (NotificationSwitch == false) {
+        _cancelNotification(); //await
+        NotificationSwitchText = '通知をオン';
+        NotificationSwitch = true;
+      } else {
+        NotificationSwitchText = '通知をオフ';
+        NotificationSwitch = false;
+        NotificationAddTimeEvent();
+        // showDialog関数を呼び出す
+        showDialog(
+          context: context,
+          builder: (context) {
+            // AlertDialogをビルドする
+            return AlertDialog(
+              title: Text('通知をオンにしました'),
+              content: Text(
+                  '今日の授業開始時間と終了する10分前、授業終了時間になったら通知を出す設定にしました。通知を出すには、アプリを終了または別のアプリ'
+                      'に切り替える必要があります。'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    // ダイアログを閉じる
+                    Navigator.pop(context);
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    });
+  }
+
+  int notificationtestmessagenum = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xffffffff),
+      body: Stack(
+        children: <Widget>[
+          Align(
+            alignment: Alignment(0.004, -0.171),
+            child: SizedBox(
+              width: 150.0,
+              height: 150.0,
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xff55beff),
+                      borderRadius:
+                      BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xffffffff),
+                      borderRadius:
+                      BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                    ),
+                    margin: EdgeInsets.all(6.0),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      NotificationSwitchControll();
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xff55beff),
+                        borderRadius:
+                        BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                      ),
+                      margin: EdgeInsets.all(11.0),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      NotificationSwitchControll();
+                    },
+                    child: Transform.translate(
+                      offset: Offset(24.0, 60.0),
+                      child: SizedBox(
+                        width: 102.0,
+                        child: Text(
+                          NotificationSwitchText,
+                          style: TextStyle(
+                            fontFamily: 'Hiragino Kaku Gothic ProN',
+                            fontSize: 20,
+                            color: const Color(0xffffffff),
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment(0.108, 0.173),
+            child: SizedBox(
+              width: 263.0,
+              height: 49.0,
+              child: Text(
+                '通知をオンにするボタンを押すと、通知が来るようになります。バイトを始める前にアプリを起動して、通知をオンにするというボタンを押してください。',
+                style: TextStyle(
+                  fontFamily: 'Hiragino Kaku Gothic ProN',
+                  fontSize: 11,
+                  color: const Color(0xff525252),
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+          Pinned.fromPins(
+            Pin(size: 253.0, middle: 0.5),
+            Pin(startFraction: 0.6984, endFraction: 0.2441),
+            child: Stack(
+              children: <Widget>[
+                InkWell(
+                  onTap: () {
+                    Classchimeaudios();
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xff71bcf9),
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Classchimeaudios();
+                  },
+                  child: Transform.translate(
+                    offset: Offset(27.0, 13.0),
+                    child: Text(
+                      '【テスト】チャイムを再生する',
+                      style: TextStyle(
+                        fontFamily: 'Hiragino Kaku Gothic ProN',
+                        fontSize: 14,
+                        color: const Color(0xffffffff),
+                      ),
+                      softWrap: false,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Pinned.fromPins(
+            Pin(size: 253.0, middle: 0.5),
+            Pin(startFraction: 0.784, endFraction: 0.1585),
+            child: Stack(
+              children: <Widget>[
+                InkWell(
+                  onTap: () {
+                    if (notificationtestmessagenum == 3) {
+                      notificationtestmessagenum = 0;
+                    }
+                    String notificationmessagelocal = "";
+                    notificationtestmessagenum += 1;
+                    if (notificationtestmessagenum == 1) {
+                      notificationmessagelocal = "1コマ目の授業が始まりました！";
+                    } else if (notificationtestmessagenum == 2) {
+                      notificationmessagelocal = "授業残り10分前です！FBに取り組みましょう！";
+                    } else if (notificationtestmessagenum == 3) {
+                      notificationmessagelocal = "授業終了です！";
+                    }
+                    final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
+                    print(now.hour);
+                    _registerMessageTest(
+                      hour: now.hour,
+                      minutes: now.minute,
+                      second: now.second + 10,
+                      message: notificationmessagelocal,
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xff71bcf9),
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    if (notificationtestmessagenum == 3) {
+                      notificationtestmessagenum = 0;
+                    }
+                    String notificationmessagelocal = "";
+                    notificationtestmessagenum += 1;
+                    if (notificationtestmessagenum == 1) {
+                      notificationmessagelocal = "1コマ目の授業が始まりました！";
+                    } else if (notificationtestmessagenum == 2) {
+                      notificationmessagelocal = "授業残り10分前です！FBに取り組みましょう！";
+                    } else if (notificationtestmessagenum == 3) {
+                      notificationmessagelocal = "授業終了です！";
+                    }
+                    final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
+                    print(now.hour);
+                    _registerMessageTest(
+                      hour: now.hour,
+                      minutes: now.minute,
+                      second: now.second + 10,
+                      message: notificationmessagelocal,
+                    );
+                  },
+                  child: Transform.translate(
+                    offset: Offset(27.0, 13.0),
+                    child: Text(
+                      '【テスト】通知を10秒後に出す',
+                      style: TextStyle(
+                        fontFamily: 'Hiragino Kaku Gothic ProN',
+                        fontSize: 14,
+                        color: const Color(0xffffffff),
+                      ),
+                      softWrap: false,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Pinned.fromPins(
+            Pin(size: 184.0, middle: 0.5024),
+            Pin(startFraction: 0.2054, endFraction: 0.7042),
+            child: Stack(
+              children: <Widget>[
+                SizedBox(
+                  width: 184.0,
+                  child: Text(
+                    MyClassStatus,
+                    style: TextStyle(
+                      fontFamily: 'Hiragino Kaku Gothic ProN',
+                      fontSize: 35,
+                      color: const Color(0xff747474),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Transform.translate(
+                  offset: Offset(34.0, 52.0),
+                  child: SizedBox(
+                    width: 124.0,
+                    child: Text(
+                      nowDateTime_str,
+                      style: TextStyle(
+                        fontFamily: 'Hiragino Kaku Gothic ProN',
+                        fontSize: 20,
+                        color: const Color(0xff747474),
+                      ),
+                      textAlign: TextAlign.center,
+                      softWrap: false,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

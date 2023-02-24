@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/just_audio/intermediates/merged_res/release/drawable/notification_tile_bg.xml",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/3faccda65b71a69f6188f005420db684/transformed/core-1.7.0/res/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/just_audio/intermediates/merged_res/release/drawable/notification_bg_low.xml",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/3faccda65b71a69f6188f005420db684/transformed/core-1.7.0/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/just_audio/intermediates/merged_res/release/drawable/notification_bg.xml",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/3faccda65b71a69f6188f005420db684/transformed/core-1.7.0/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/just_audio/intermediates/merged_res/release/drawable/notification_icon_background.xml",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/3faccda65b71a69f6188f005420db684/transformed/core-1.7.0/res/drawable/notification_icon_background.xml"
+    }
+]

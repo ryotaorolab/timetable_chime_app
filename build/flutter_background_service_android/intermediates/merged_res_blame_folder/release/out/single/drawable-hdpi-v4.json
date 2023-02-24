@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_res/release/drawable-hdpi-v4/notification_bg_low_pressed.9.png",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_res/release/drawable-hdpi-v4/notification_bg_low_normal.9.png",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_res/release/drawable-hdpi-v4/ic_bg_service_small.png",
+        "source": "/Users/ryotaro/.pub-cache/hosted/pub.dev/flutter_background_service_android-3.0.3/android/src/main/res/drawable-hdpi/ic_bg_service_small.png"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_res/release/drawable-hdpi-v4/notify_panel_notification_icon_bg.png",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_res/release/drawable-hdpi-v4/notification_bg_normal_pressed.9.png",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/flutter_background_service_android/intermediates/merged_res/release/drawable-hdpi-v4/notification_bg_normal.9.png",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/1a5a160b0398a0c8c9bae094792956c4/transformed/core-1.6.0/res/drawable-hdpi-v4/notification_bg_normal.9.png"
+    }
+]

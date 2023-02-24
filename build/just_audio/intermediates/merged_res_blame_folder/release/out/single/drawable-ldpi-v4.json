@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/just_audio/intermediates/merged_res/release/drawable-ldpi-v4/media_session_service_notification_ic_skip_to_previous.png",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/res/drawable-ldpi-v4/media_session_service_notification_ic_skip_to_previous.png"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/just_audio/intermediates/merged_res/release/drawable-ldpi-v4/media_session_service_notification_ic_music_note.png",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/res/drawable-ldpi-v4/media_session_service_notification_ic_music_note.png"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/just_audio/intermediates/merged_res/release/drawable-ldpi-v4/media_session_service_notification_ic_skip_to_next.png",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/res/drawable-ldpi-v4/media_session_service_notification_ic_skip_to_next.png"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/just_audio/intermediates/merged_res/release/drawable-ldpi-v4/media_session_service_notification_ic_pause.png",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/res/drawable-ldpi-v4/media_session_service_notification_ic_pause.png"
+    },
+    {
+        "merged": "/Users/ryotaro/Documents/AndroidStudioFire/timerclassgit/build/just_audio/intermediates/merged_res/release/drawable-ldpi-v4/media_session_service_notification_ic_play.png",
+        "source": "/Users/ryotaro/.gradle/caches/transforms-3/778e4d78e6ef0676b274c2a956333a00/transformed/jetified-media2-session-1.2.0/res/drawable-ldpi-v4/media_session_service_notification_ic_play.png"
+    }
+]
